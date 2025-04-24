@@ -1,4 +1,6 @@
 import allure
+
+from data import burger_str
 from page_objects.account_page import AccountPage
 from page_objects.feed_page import FeedPage
 from page_objects.main_page import MainPage
@@ -13,7 +15,7 @@ class TestFeedPage:
         feed_page = FeedPage(driver)
         main_page.click_header_feed_button()
         feed_page.click_on_order_card()
-        assert 'бургер' in feed_page.get_text_on_title_of_modal_order()
+        assert burger_str in feed_page.get_text_on_title_of_modal_order()
 
     @allure.title('Проверка отображения существующего заказа из истории пользователя в ленте')
     def test_displaying_in_feed_new_order_from_history_success(self, driver, create_user_and_order_and_delete,

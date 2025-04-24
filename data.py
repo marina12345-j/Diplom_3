@@ -1,5 +1,7 @@
 from helpers import *
 
+burger_str = 'бургер'
+create_burger_str = 'Соберите бургер'
 
 class UsersData:
     email = 'jmailova_praktikum_2025@ya.ru'

@@ -1,5 +1,6 @@
 import allure
 
+from data import burger_str
 from page_objects.account_page import AccountPage
 from page_objects.main_page import MainPage
 from page_objects.order_history_page import OrderHistoryPage
@@ -23,7 +24,7 @@ class TestAccountPage:
         account_page.wait_visibility_of_description()
         account_page.click_on_order_history_button()
         order_history_page.wait_visibility_of_order_card()
-        assert 'бургер' in order_history_page.get_text_of_order_card_title()
+        assert burger_str in order_history_page.get_text_of_order_card_title()
 
     @allure.title('Проверка выполнения логаута по кнопке "Выйти"')
     def test_logout_from_profile_page_success(self, driver, set_user_tokens):

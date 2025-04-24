@@ -18,9 +18,10 @@ class PasswdRecoveryPage(BasePage):
 
     @allure.step('Ввести email')
     def send_email(self):
-        self.wait_visibility_of_element(PasswordRecoveryLocators.input_email)
+        email_locator = PasswordRecoveryLocators.input_email
         email = generate_random_email()
-        self.send_keys_to_input(PasswordRecoveryLocators.input_email, email)
+        self.wait_visibility_of_element(email_locator)
+        self.send_keys_to_input(email_locator, email)
 
     @allure.step('Кликнуть на кнопку "Восстановить"')
     def click_on_recovery_button(self):

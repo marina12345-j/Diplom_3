@@ -18,12 +18,6 @@ def driver(request):
     yield browser
     browser.quit()
 
-@pytest.fixture
-def generate_user_credentials():
-    email = generate_random_email()
-    password = generate_random_password()
-    name = generate_random_username()
-    return email, password, name
 
 @pytest.fixture
 @allure.title('Фикстура создает пользователя с рандомными кредами и удаляет его из базы после теста')

@@ -1,5 +1,8 @@
+from venv import create
+
 import allure
 
+from data import create_burger_str
 from page_objects.feed_page import FeedPage
 from page_objects.main_page import MainPage
 
@@ -10,7 +13,7 @@ class TestMainPage:
         main_page = MainPage(driver)
         main_page.click_header_feed_button()
         main_page.click_on_button_constructor()
-        assert 'Соберите бургер' in main_page.get_text_on_title_of_constructor()
+        assert create_burger_str in main_page.get_text_on_title_of_constructor()
 
     @allure.title('Проверка перехода по клику на "Ленту заказов"')
     def test_navigate_to_order_history_success(self, driver):
