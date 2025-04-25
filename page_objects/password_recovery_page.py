@@ -1,5 +1,6 @@
 import allure
 
+from data import UsersData
 from helpers import generate_random_email, generate_random_password
 from locators.password_recovery_locators import PasswordRecoveryLocators
 from page_objects.base_page import BasePage
@@ -18,10 +19,8 @@ class PasswdRecoveryPage(BasePage):
 
     @allure.step('Ввести email')
     def send_email(self):
-        email_locator = PasswordRecoveryLocators.input_email
-        email = generate_random_email()
-        self.wait_visibility_of_element(email_locator)
-        self.send_keys_to_input(email_locator, email)
+        self.wait_visibility_of_element(PasswordRecoveryLocators.input_email)
+        self.send_keys_to_input(PasswordRecoveryLocators.input_email, UsersData.random_email)
 
     @allure.step('Кликнуть на кнопку "Восстановить"')
     def click_on_recovery_button(self):
@@ -36,8 +35,8 @@ class PasswdRecoveryPage(BasePage):
     @allure.step('Ввести password')
     def send_password(self):
         self.wait_visibility_of_element(PasswordRecoveryLocators.input_password_after)
-        passwd = generate_random_password()
-        self.send_keys_to_input(PasswordRecoveryLocators.input_password_after, passwd)
+
+        self.send_keys_to_input(PasswordRecoveryLocators.input_password_after, UsersData.random_password)
 
     @allure.step('Кликнуть на иконку глаза в поле ввода пароля')
     def click_on_eye_icon(self):

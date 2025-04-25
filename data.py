@@ -8,6 +8,9 @@ class UsersData:
     password = 'brains'
     username = 'Marina'
 
+    random_email = generate_random_email()
+    random_password = generate_random_password()
+
     credentials_with_empty_field = [
         {'email': '',
          'password': generate_random_password(),
